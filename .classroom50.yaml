@@ -1,0 +1,8 @@
+schema: "classroom50/repo-config/v1"
+classroom: "developing-the-interactive-web"
+assignment: "lec-3"
+secret: "coos6z1d"
+owner:
+  username: "nimishabora"
+  id: 65830448
+  accepted_at: "2026-09-15T13:19:30Z"
