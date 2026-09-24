@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Guestbook</title>
+  </head>
+  <body>
+    <h1>Guestbook</h1>
+    <p>Leave your name for the next visitor to find.</p>
+
+
+<p><a href="submit.html">Add your name</a></p>
+
+    <h2>Names Submitted:</h2>
+    <ul>
+        <!-- This part loads names from the server -->
+        <!-- Example using PHP -->
+        <?php
+            $names = file("names.txt", FILE_IGNORE_NEW_LINES);
+            foreach ($names as $n) {
+                echo "<li>" . htmlspecialchars($n) . "</li>";
+            }
+        ?>
+    </ul>

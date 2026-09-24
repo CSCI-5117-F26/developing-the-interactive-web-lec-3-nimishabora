@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guestbook</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Georgia, "Times New Roman", serif;
+        background: #f4efe6;
+        color: #263238;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        width: min(90vw, 36rem);
+        padding: 3rem 2rem;
+      }
+
+      h1 {
+        margin-bottom: 0.4rem;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        line-height: 0.95;
+      }
+
+      p {
+        color: #5f6b70;
+      }
+
+      form {
+        display: flex;
+        gap: 0.7rem;
+        margin: 2rem 0;
+      }
+
+      input,
+      button {
+        border: 2px solid #263238;
+        border-radius: 0;
+        font: inherit;
+        padding: 0.8rem 1rem;
+      }
+
+      input {
+        flex: 1;
+        min-width: 0;
+        background: #fffdf8;
+      }
+
+      button {
+        background: #e47551;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #f09b71;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid #b8afa3;
+      }
+
+      li {
+        padding: 1rem 0;
+        border-bottom: 1px solid #b8afa3;
+        font-size: 1.2rem;
+      }
+
+      .empty {
+        color: #7a817f;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Guestbook</h1>
+      <p>Leave your name for the next visitor to find.</p>
+
+      <form method="post">
+        <label for="name" hidden>Your name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required>
+        <button type="submit">Sign</button>
+      </form>
+
+      <ul>
+        {% for name in names %}
+          <li>{{ name }}</li>
+        {% else %}
+          <li class="empty">No names yet. Be the first to sign.</li>
+        {% endfor %}
+      </ul>
+    </main>
+  </body>
+</html>
